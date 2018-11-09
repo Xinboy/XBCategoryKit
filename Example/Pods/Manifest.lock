@@ -1,0 +1,16 @@
+PODS:
+  - XBCategoryKit (0.1.0)
+
+DEPENDENCIES:
+  - XBCategoryKit (from `../`)
+
+EXTERNAL SOURCES:
+  XBCategoryKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XBCategoryKit: 8579f6634bca7990954ea5e94f093b2176088633
+
+PODFILE CHECKSUM: bce3011bc0ad9eab9587e912a4a9f46addf73852
+
+COCOAPODS: 1.5.3

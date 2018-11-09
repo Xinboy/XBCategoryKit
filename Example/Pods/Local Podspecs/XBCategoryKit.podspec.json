@@ -1,0 +1,22 @@
+{
+  "name": "XBCategoryKit",
+  "version": "0.1.0",
+  "summary": "A short description of XBCategoryKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Xinboy/XBCategoryKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Xinboy": "xinbo.hong@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Xinboy/XBCategoryKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "XBCategoryKit/Classes/**/*"
+}
