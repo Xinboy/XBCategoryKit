@@ -7,12 +7,44 @@
 //
 
 #import "XBAppDelegate.h"
-
+//#import "NSObject+Properties.h"
+//
+//#import "XBTest.h"
 @implementation XBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSLog(@"--");
     // Override point for customization after application launch.
+//    XBTest *test = [[XBTest alloc] init];
+//    test.string = @"testString";
+//
+//    test.dict = @{@"key1": @"value1",
+//                  @"key2": @"value2",
+//                  @"key3": @"value3",
+//                  @"key4": @"value4",
+//                  @"key5": @"value5",
+//                  @"key6": @"value6"
+//                  };
+//
+//    test.array = @[@"value2",@"value2",@"value2",@"value2",@"value2"];
+//
+//
+//    NSLog(@"%@",[XBTest className]);
+//    NSLog(@"%@",[test className]);
+//
+//    NSLog(@"-----");
+//    NSLog(@"%@",[XBTest propertiesValues]);
+//    NSLog(@"%@",[test propertiesValues]);
+//
+//    NSLog(@"-----");
+//    NSLog(@"%@",[XBTest propertyKeys]);
+//    NSLog(@"%@",[test propertyKeys]);
+//
+//    NSLog(@"-----");
+//    NSLog(@"%@",[XBTest methodList]);
+//    NSLog(@"%@",[test methodList]);
     return YES;
 }
 

@@ -1,15 +1,22 @@
 PODS:
-  - XBCategoryKit (0.1.0)
+  - Masonry (1.1.0)
+  - XBCategoryKit (0.1.1):
+    - Masonry
 
 DEPENDENCIES:
   - XBCategoryKit (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
 
 EXTERNAL SOURCES:
   XBCategoryKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XBCategoryKit: 8579f6634bca7990954ea5e94f093b2176088633
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  XBCategoryKit: 13d2161966389f8857ecb3924b862bdfac757f47
 
 PODFILE CHECKSUM: bce3011bc0ad9eab9587e912a4a9f46addf73852
 

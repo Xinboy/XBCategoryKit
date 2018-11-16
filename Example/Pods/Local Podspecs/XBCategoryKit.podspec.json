@@ -1,22 +1,31 @@
 {
   "name": "XBCategoryKit",
-  "version": "0.1.0",
-  "summary": "A short description of XBCategoryKit.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Xinboy/XBCategoryKit",
+  "version": "0.1.1",
+  "summary": "分类组件",
+  "description": "TODO: 分类组件，主要集合各种分类",
+  "homepage": "https://dev.tencent.com/u/Xinbo2016/p/XBCategoryKit/git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "Xinboy": "xinbo.hong@hotmail.com"
+    "洪新博": "xinbo.hong@hotmail.com"
   },
   "source": {
-    "git": "https://github.com/Xinboy/XBCategoryKit.git",
-    "tag": "0.1.0"
+    "git": "https://git.dev.tencent.com/Xinbo2016/XBCategoryKit.git",
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "XBCategoryKit/Classes/**/*"
+  "source_files": "XBCategoryKit/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "dependencies": {
+    "Masonry": [
+
+    ]
+  }
 }
