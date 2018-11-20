@@ -32,4 +32,27 @@
     return [NSNumber numberWithDouble:[[formatter stringFromNumber:self] doubleValue]];
 }
 
++ (CGFloat)maxNumberFromArray:(NSArray *)array {
+    CGFloat max = 0;
+    max = [[array valueForKeyPath:@"@max.floatValue"] floatValue];
+    return max;
+}
+
++ (CGFloat)minNumberFromArray:(NSArray *)array {
+    CGFloat min = 0;
+    min = [[array valueForKeyPath:@"@min.floatValue"] floatValue];
+    return min;
+}
+
++ (CGFloat)sumNumberFromArray:(NSArray *)array {
+    CGFloat sum = 0;
+    sum = [[array valueForKeyPath:@"@sum.floatValue"] floatValue];
+    return sum;
+}
+
++ (CGFloat)averageNumberFromArray:(NSArray *)array {
+    CGFloat avg = 0;
+    avg = [[array valueForKeyPath:@"@avg.floatValue"] floatValue];
+    return avg;
+}
 @end

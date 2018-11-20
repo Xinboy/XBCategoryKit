@@ -39,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSNumber*)floorWithDigit:(NSUInteger)digit;
 
+//最大,最小,和,平均
++ (CGFloat)maxNumberFromArray:(NSArray *)array;
++ (CGFloat)minNumberFromArray:(NSArray *)array;
++ (CGFloat)sumNumberFromArray:(NSArray *)array;
++ (CGFloat)averageNumberFromArray:(NSArray *)array;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -474,4 +474,21 @@
     return [number unsignedIntegerValue];
 }
 
++ (CGFloat)usableHardDriveCapacity {
+    CGFloat usable = 0;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDictionary *attributes = [fileManager attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    usable = [attributes[NSFileSystemFreeSize] doubleValue] / powf(1024, 3);
+    return usable;
+}
+
+
++ (CGFloat)allHardDriveCapacity {
+    CGFloat all = 0;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDictionary *attributes = [fileManager attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    all = [attributes[NSFileSystemSize] doubleValue] / (powf(1024, 3));
+    return all;
+}
+
 @end

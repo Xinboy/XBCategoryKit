@@ -55,50 +55,113 @@ typedef NS_ENUM(NSInteger, Device){
 + (Device)deviceFromDeviceIdentifier:(NSString *)platform;
 
 + (Device)currentDevice;
-/** 屏幕对角尺寸*/
+
+/**
+ 屏幕对角尺寸
+ */
 + (CGFloat)diagonalWithDevice;
-/** 屏幕比例*/
+
+/**
+ 屏幕比例
+ */
 + (CGSize)screenRatioWithDevice;
-/** 屏幕ppi*/
+
+/**
+ 屏幕ppi
+ */
 + (NSInteger)ppiWithDevice;
-/** 设备描述*/
+
+/**
+ 设备描述
+ */
 + (NSString *)descriptionWithDevice;
-/** 是否是iPod*/
+
+/**
+ 是否是iPod
+ */
 + (BOOL)isPod;
-/** 是否是iPhone*/
+
+/**
+ 是否是iPhone
+ */
 + (BOOL)isPhone;
-/** 是否是iPad*/
+
+/**
+ 是否是iPad
+ */
 + (BOOL)isPad;
-/** 是否能够面部识别*/
+
+/**
+ 是否能够面部识别
+ */
 + (BOOL)isCanFaceID;
-/** 是否能够指纹识别*/
+
+/**
+ 是否能够指纹识别
+ */
 + (BOOL)isCanTouchID;
-/** 是否是真机*/
+
+/**
+ 是否是真机
+ */
 + (BOOL)isRunningOniPhone;
-/** 是否是小尺寸设备（3.7/4）*/
+
+/**
+ 是否是小尺寸设备（3.7/4）
+ */
 + (BOOL)isSmallSizedDevice;
-/** 是否是普通设备（4.7）*/
+
+/**
+ 是否是普通设备（4.7）
+ */
 + (BOOL)isDefaultSizedDevice;
-/** 是否是Plus系列设备（5.5）*/
+
+/**
+ 是否是Plus系列设备（5.5）
+ */
 + (BOOL)isPlusSizedDevice;
-/** 是否是iPhone X系列设备*/
+
+/**
+ 是否是iPhone X系列设备
+ */
 + (BOOL)isXSeriesSizedDevice;
 
 #pragma mark - --- 获取设备信息 ---
-/** mac地址 */
+/**
+ mac地址
+ */
 + (NSString *)macAddress;
 
-/** 是否有摄像头 */
+/**
+ 是否有摄像头
+ */
 + (BOOL)hasCamera;
 
-/** 获取手机可用内存, 返回的是字节数 */
+/**
+ 获取手机可用内存, 返回的是字节数
+ */
 + (NSUInteger)freeMemoryBytes;
 
-/** 获取手机硬盘总空间, 返回的是字节数 */
+/**
+ 获取手机硬盘总空间, 返回的是字节数
+ */
 + (NSUInteger)totalDiskSpaceBytes;
 
-/** 获取手机硬盘空闲空间, 返回的是字节数 */
+/**
+ 获取手机硬盘空闲空间, 返回的是字节数
+ */
 + (NSUInteger)freeDiskSpaceBytes;
+
+/**
+ 可用硬件容量
+ */
++ (CGFloat)usableHardDriveCapacity;
+
+/**
+ 硬件总容量
+
+ */
++ (CGFloat)allHardDriveCapacity;
 @end
 
 NS_ASSUME_NONNULL_END
