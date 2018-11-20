@@ -8,7 +8,7 @@
 
 /*
  *  控件名称:    无数据/意外情况显示页（无第三方控件）
- *  控件完成情况: 完成，后期跟随技术提升进行优化
+ *  控件完成情况: 完成，视图可根据实际产品需求进行更改
  *  最后记录时间: 2018/1/21
  */
 /****************** 原生代码 ******************/
@@ -17,7 +17,7 @@
 
 typedef void(^reloadButtonAction)(void);
 
-@interface UIView (placeholderView)
+@interface UIView (PlaceholderView)
 
 /** UIView的占位图类型 */
 typedef NS_ENUM(NSInteger, PlaceholderViewType) {
@@ -33,5 +33,15 @@ typedef NS_ENUM(NSInteger, PlaceholderViewType) {
 - (void)showPlaceholderView;
 
 - (void)removePlaceholderView;
+
+@end
+
+#pragma mark - --- PlaceholderView 视图 ---
+
+@interface PlaceholderView : UIView
+
+@property (nonatomic, strong) UIImageView *iconImageView;
+
+@property (nonatomic, strong) UILabel *infoLabel;
 
 @end

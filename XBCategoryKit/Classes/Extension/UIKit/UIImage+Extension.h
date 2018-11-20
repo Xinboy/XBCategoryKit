@@ -16,16 +16,13 @@ typedef NS_ENUM(NSInteger, CircleHeading) {
 };
 
 @interface UIImage (Extension)
-/**
- 图片按照一个半径裁剪左右边框
- */
-- (UIImage *)imageWithCornerRadius:(CGFloat)radius;
 
 /**
- 重新设定图片大小
+ 截屏
  */
-+ (UIImage *)resizableImage:(NSString *)imageName top:(CGFloat)top bottom:(CGFloat)bottom left:(CGFloat)left right:(CGFloat)right;
++ (instancetype)snapshotCurrentScreen;
 
+#pragma mark - --- 获取图片 ---
 /**
  根据颜色生成纯色图片
  */
@@ -34,13 +31,49 @@ typedef NS_ENUM(NSInteger, CircleHeading) {
 /**
  根据颜色生成纯色圆角图片
  */
-+ (UIImage *)imageWithCornerRadiusSize:(CGSize)size BackgroundColor:(UIColor *)color;
++ (UIImage *)imageWithCornerRadiusSize:(CGSize)size Color:(UIColor *)color;
+
+/**
+ 获得灰度图
+ */
+- (UIImage *)convertToGrayImage;
+
+/** UIView转化为UIImage */
++ (UIImage *)imageFromView:(UIView *)view;
+
+/** 加上蒙版图片 */
+- (UIImage *)imageWithMask:(UIImage *)maskImage;
+
+//带有阴影效果的图片
+- (UIImage *)imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur;
+#pragma mark - --- 图片处理 ---
+/**
+ 图片模糊效果
+ 默认透明度为0.1，半径3，饱和因子为1
+ */
+- (UIImage *)blur;
+
+/**
+ 图片模糊效果
+ */
+- (UIImage *)imageWithAlpha:(CGFloat)alpha radius:(CGFloat)radius colorSaturationFactor:(CGFloat)colorSaturationFactor;
+
+/**
+ 图片按照一个半径裁剪左右圆角
+ */
+- (UIImage *)imageWithCornerRadius:(CGFloat)radius;
 
 /**
  图片裁剪成圆形
  */
-+ (UIImage *)cutCircleWithImage:(UIImage *)image;
++ (UIImage *)circleWithImage:(UIImage *)image;
 
+
+#pragma mark - --- 图片操作 ---
+/**
+ 重新设定图片大小
+ */
++ (UIImage *)resizableImage:(NSString *)imageName top:(CGFloat)top bottom:(CGFloat)bottom left:(CGFloat)left right:(CGFloat)right;
 /**
  缩放图片
  */
@@ -51,6 +84,45 @@ typedef NS_ENUM(NSInteger, CircleHeading) {
  */
 + (UIImage *)scaledImageWithData:(NSData *)data withSize:(CGSize)size scale:(CGFloat)scale orientation:(UIImageOrientation)orientation;
 
+/**
+ 压缩图片:最大字节大小为maxLength
+ */
+- (NSData *)compressWithMaxLength:(NSInteger)maxLength;
+
+/**
+ 压缩图片至指定尺寸
+ */
+- (UIImage *)rescaleImageToSize:(CGSize)size;
+
+/**
+ 压缩图片至指定像素
+ */
+- (UIImage *)rescaleImageToPX:(CGFloat )toPX;
+
+/**
+ 按给定的方向旋转图片
+ */
+- (UIImage*)rotate:(UIImageOrientation)orient;
+
+/**
+ 垂直翻转
+ */
+- (UIImage *)flipVertical;
+
+/**
+ 水平翻转
+ */
+- (UIImage *)flipHorizontal;
+
+/**
+ 将图片旋转radians弧度
+ */
+- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+
+/**
+ 将图片旋转degrees角度
+ */
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 #pragma mark - **************** 二维码生成
 
 /**
