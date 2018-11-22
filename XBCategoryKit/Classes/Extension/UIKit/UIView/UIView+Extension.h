@@ -29,18 +29,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  找到指定类名的subView
  */
-- (UIView *)findSubViewWithClass:(Class)subClass;
-- (NSArray *)findAllSubViewsWithClass:(Class)subClass;
+- (UIView *)subViewWithClass:(Class)subClass;
+- (UIView *)subViewWithClass:(Class)subClass ofTag:(NSInteger)tag;
+
+- (NSArray *)subViewsWithClass:(Class)subClass;
+
 
 /**
  找到指定类名的superView对象
  */
-- (UIView *)findSuperViewWithClass:(Class)superClass;
+- (UIView *)superViewWithClass:(Class)superClass;
 
 /**
  找到view上的第一响应者
  */
-- (UIView *)findFirstResponder;
+- (UIView *)firstResponder;
 
 /**
  找到当前view所在的viewcontroler
@@ -52,6 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSArray *)allSubviews;
 
+/**
+ 执行指定持续时间的交叉淡入淡出过渡
+ */
+- (void)crossfadeWithDuration:(NSTimeInterval)duration;
+- (void)crossfadeWithDuration:(NSTimeInterval)duration completion:(void (^)(void))completion;
 
 @end
 

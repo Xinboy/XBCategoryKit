@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Xinbo. All rights reserved.
 //
 
-#import "UIViewController+Tracking.h"
+#import "UIViewController+Swizzled.h"
 #import <objc/runtime.h>
 
 @implementation UIViewController (Swizzled)
@@ -17,28 +17,6 @@ static NSString *logTag = @"";
 
 + (void)load {
     isSwizzed = NO;
-    
-    return;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        
-        SEL originSEL = @selector(viewWillAppear:);
-        SEL swizzledSEL = @selector(xb_viewWillAppear:);
-        
-        Method originMethod = class_getInstanceMethod(class, originSEL);
-        Method swizzledMethod = class_getInstanceMethod(class, swizzledSEL);
-        
-        BOOL didAddMethod = class_addMethod(class, originSEL, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
-        
-        if (didAddMethod) {
-            class_replaceMethod(class, swizzledSEL, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
-        } else {
-            method_exchangeImplementations(originMethod, swizzledMethod);
-        }
-
-    });
 }
 
 
@@ -106,7 +84,7 @@ static NSString *logTag = @"";
         return;
     }
     isSwizzed = NO;
-    [self swizzInstance:[self class] originSelector:@selector(xb_viewWillAppear:) swizzledSelector:@selector(viewDidAppear:)]
+    [self swizzInstance:[self class] originSelector:@selector(xb_viewWillAppear:) swizzledSelector:@selector(viewDidAppear:)];
 }
 
 

@@ -37,59 +37,184 @@
  */
 + (NSString *)timeStringWithTimeStmap:(NSString *)timeStamp;
 
-#pragma mark - --- 根据X（年/月/日/时/分/秒）后的日期,若X为负数,则为|X|天前的日期 ---
-/**
- * 返回numYears年后的日期
- */
-- (NSDate *)offsetYears:(int)numYears;
-+ (NSDate *)offsetYears:(int)numYears fromDate:(NSDate *)fromDate;
+#pragma mark - --- 给定日期/当前日期的X（年/月/日/时/分/秒）前后日期 ---
+
++ (NSDate *)dateWithTomorrow;
+
++ (NSDate *)dateWithYesterday;
 
 /**
- * 返回numMonths月后的日期
+ * 返回 给定日期/当前日期的dYears年后的日期
  */
-- (NSDate *)offsetMonths:(int)numMonths;
-+ (NSDate *)offsetMonths:(int)numMonths fromDate:(NSDate *)fromDate;
++ (NSDate *)dateWithYearsAfterNow:(NSInteger)dYears;
++ (NSDate *)dateWithYears:(NSInteger)dYears AfterDate:(NSDate *)afterDate;
 
 /**
- * 返回numDays天后的日期
+ * 返回 给定日期/当前日期的dYears年前的日期
  */
-- (NSDate *)offsetDays:(int)numDays;
-+ (NSDate *)offsetDays:(int)numDays fromDate:(NSDate *)fromDate;
++ (NSDate *)dateWithYearsBefoerNow:(NSInteger)dYears;
++ (NSDate *)dateWithYears:(NSInteger)dYears BefoerDate:(NSDate *)beforeDate;
 
 /**
- * 返回numHours小时后的日期
+ * 返回 给定日期/当前日期的dMonths年后日期
  */
-- (NSDate *)offsetHours:(int)hours;
-+ (NSDate *)offsetHours:(int)numHours fromDate:(NSDate *)fromDate;
++ (NSDate *)dateWithMonthsAfterNow:(NSInteger)dMonths;
++ (NSDate *)dateWithMonths:(NSInteger)dMonths AfterDate:(NSDate *)afterDate;
 
 /**
- * 返回numMintue分钟后的日期
+ * 返回 给定日期/当前日期的dMonths年前的日期
  */
-- (NSDate *)offsetMintue:(int)mintue;
-+ (NSDate *)offsetMintue:(int)numMintue fromDate:(NSDate *)fromDate;
++ (NSDate *)dateWithMonthsBeforeNow:(NSInteger)dMonths;
++ (NSDate *)dateWithMonths:(NSInteger)dMonths BeforeDate:(NSDate *)beforeDate;
 
 /**
- * 返回numSecond秒后的日期
+ * 返回 给定日期/当前日期的dDays年后日期
  */
-- (NSDate *)offsetSecond:(int)second;
-+ (NSDate *)offsetSecond:(int)numSecond fromDate:(NSDate *)fromDate;
-#pragma mark - --- 根据当前月的第一天和最后一天 ---
-/**
- * 获取该月的第一天的日期
- */
-- (NSDate *)beginDayOfMonth;
-+ (NSDate *)begindayOfMonth:(NSDate *)date;
++ (NSDate *)dateWithDaysAfterNow:(NSInteger)dDays;
++ (NSDate *)dateWithDays:(NSInteger)dDays AfterDate:(NSDate *)afterDate;
 
 /**
- * 获取该月的最后一天的日期
+ * 返回 给定日期/当前日期的dDays年前的日期
  */
-- (NSDate *)lastDayOfMonth;
-+ (NSDate *)lastDayOfMonth:(NSDate *)date;
++ (NSDate *)dateWithDaysBeforeNow:(NSInteger)dDays;
++ (NSDate *)dateWithDays:(NSInteger)dDays BeforeDate:(NSDate *)beforeDate;
 
+/**
+ * 返回 给定日期/当前日期的dHours年后日期
+ */
++ (NSDate *)dateWithHoursAfterNow:(NSInteger)dHours;
++ (NSDate *)dateWithHours:(NSInteger)dHours AfterDate:(NSDate *)afterDate;
+
+/**
+ * 返回 给定日期/当前日期的dHours年前的日期
+ */
++ (NSDate *)dateWithHoursBeforeNow:(NSInteger)dHours;
++ (NSDate *)dateWithHours:(NSInteger)dHours BeforeDate:(NSDate *)beforeDate;
+
+/**
+ * 返回 给定日期/当前日期的dMintues年后日期
+ */
++ (NSDate *)dateWithMintuesAfterNow:(NSInteger)dMintues;
++ (NSDate *)dateWithMintues:(NSInteger)dMintues AfterDate:(NSDate *)afterDate;
+
+/**
+ * 返回 给定日期/当前日期的dMintues年前的日期
+ */
++ (NSDate *)dateWithMintuesBeforeNow:(NSInteger)dMintues;
++ (NSDate *)dateWithMintues:(NSInteger)dMintues BeforeDate:(NSDate *)beforeDate;
+
+/**
+ * 返回 给定日期/当前日期的dSeconds年后日期
+ */
++ (NSDate *)dateWithSecondsAfterNow:(NSInteger)dSeconds;
++ (NSDate *)dateWithSeconds:(NSInteger)dSeconds AfterDate:(NSDate *)afterDate;
+
+/**
+ * 返回 给定日期/当前日期的dSeconds年前的日期
+ */
++ (NSDate *)dateWithSecondsBeforeNow:(NSInteger)dSeconds;
++ (NSDate *)dateWithSeconds:(int)dSeconds BeforeDate:(NSDate *)beforeDate;
+
+
+
+#pragma mark - --- 比较日期，判断是否为某一特征 ---
+- (BOOL)isEqualToDateIgnoringTime:(NSDate *)otherDate;
+
+- (BOOL)isToday;
+
+- (BOOL)isTomorrow;
+
+- (BOOL)isYesterday;
+
+- (BOOL)isSameWeekAsDate:(NSDate *)aDate;
+
+- (BOOL)isThisWeek;
+
+- (BOOL)isNextWeek;
+
+- (BOOL)isLastWeek;
+
+- (BOOL)isSameMonthAsDate:(NSDate *)aDate;
+
+- (BOOL)isThisMonth;
+
+- (BOOL)isNextMonth;
+
+- (BOOL)isLastMonth;
+
+- (BOOL)isSameYearAsDate:(NSDate *)aDate;
+
+- (BOOL)isThisYear;
+
+- (BOOL)isNextYear;
+
+- (BOOL)isLastYear;
+
+- (BOOL)isEarlierThanDate:(NSDate *)aDate;
+
+- (BOOL)isLaterThanDate:(NSDate *)aDate;
+
+- (BOOL)isEarlierThanOrEqualDate:(NSDate *)aDate;
+
+- (BOOL)isLaterThanOrEqualDate:(NSDate *)aDate;
+
+- (BOOL)isInFuture;
+
+- (BOOL)isInPast;
+
+#pragma mark - --- 比较日期，根据需要获得值（） ---
+- (NSInteger)secondsAfterDate:(NSDate *)aDate;
+
+- (NSInteger)secondsBeforeDate:(NSDate *)aDate;
+
+- (NSInteger)minutesAfterDate:(NSDate *)aDate;
+
+- (NSInteger)minutesBeforeDate:(NSDate *)aDate;
+
+- (NSInteger)hoursAfterDate:(NSDate *)aDate;
+
+- (NSInteger)hoursBeforeDate:(NSDate *)aDate;
+
+- (NSInteger)daysAfterDate:(NSDate *)aDate;
+
+- (NSInteger)daysBeforeDate:(NSDate *)aDate;
+
+- (NSInteger)monthsAfterDate:(NSDate *)aDate;
+
+- (NSInteger)monthsBeforeDate:(NSDate *)aDate;
+
+- (NSInteger)yearsAfterDate:(NSDate *)aDate;
+
+- (NSInteger)yearsBeforeDate:(NSDate *)aDate;
+#pragma mark - --- 获取某天/月/年的开始或结束日期 ---
+
+- (NSDate *)dateAtStartOfDay;
+
+- (NSDate *)dateAtStartOfNextDay;
+
+- (NSDate *)dateAtEndOfDay NS_DEPRECATED(10_0, 10_12, 10_0, 11_0, "Use dateAtStartOfNextDay instead");
+
+- (NSDate *)dateAtStartOfWeek;
+
+- (NSDate *)dateAtStartOfNextWeek;
+
+- (NSDate *)dateAtEndOfWeek NS_DEPRECATED(10_0, 10_12, 10_0, 11_0, "Use dateAtStartOfNextWeek instead");
+
+- (NSDate *)dateAtStartOfMonth;
+
+- (NSDate *)dateAtStartOfNextMonth;
+
+- (NSDate *)dateAtEndOfMonth NS_DEPRECATED(10_0, 10_12, 10_0, 11_0, "Use dateAtStartOfNextMonth instead");
+
+- (NSDate *)dateAtStartOfYear;
+
+- (NSDate *)dateAtStartOfNextYear;
+
+- (NSDate *)dateAtEndOfYear NS_DEPRECATED(10_0, 10_12, 10_0, 11_0, "Use dateAtStartOfNextYear instead");
 
 #pragma mark - --- 获取年月日，时分秒---
 /**
- * 获取日、月、年、小时、分钟、秒
+ * 获取日、月、年、小时、分钟、秒、周的长度
  */
 - (NSUInteger)day;
 - (NSUInteger)month;
@@ -97,11 +222,14 @@
 - (NSUInteger)hour;
 - (NSUInteger)minute;
 - (NSUInteger)second;
+- (NSUInteger)weekday;
 + (NSUInteger)day:(NSDate *)date;
 + (NSUInteger)month:(NSDate *)date;
 + (NSUInteger)year:(NSDate *)date;
 + (NSUInteger)hour:(NSDate *)date;
 + (NSUInteger)minute:(NSDate *)date;
 + (NSUInteger)second:(NSDate *)date;
++ (NSUInteger)weekday;
+
 
 @end

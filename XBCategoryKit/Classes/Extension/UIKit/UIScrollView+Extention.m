@@ -9,6 +9,20 @@
 
 @implementation UIScrollView (Extention)
 
+
+- (UIImage *)snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0.0, -self.contentOffset.y);
+    [self.layer renderInContext:context];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+
 - (void)scrollToTop {
     [self scrollToTopAnimated:YES];
 }

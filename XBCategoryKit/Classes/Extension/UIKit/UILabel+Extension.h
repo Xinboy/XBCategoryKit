@@ -22,6 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setRowSpace:(CGFloat)rowSpace;
 
 
+- (CGSize)contentSizeForWidth:(CGFloat)width;
+
+- (CGSize)contentSizeForHeight:(CGFloat)height;
+
+- (CGSize)contentSize;
+
+- (BOOL)isTruncated;
 @end
 
 NS_ASSUME_NONNULL_END

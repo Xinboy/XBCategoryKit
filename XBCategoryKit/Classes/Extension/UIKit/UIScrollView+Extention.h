@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIScrollView (Extention)
 
+//截屏
+- (UIImage *)snapshotImage;
+
 - (void)scrollToTop;
 
 
