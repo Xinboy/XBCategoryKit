@@ -31,7 +31,8 @@
 #import "UIView+Init.h"
 #import "UIView+PlaceholderView.h"
 #import "UIViewController+Extention.h"
-#import "UIViewController+Tracking.h"
+#import "UIViewController+Swizzled.h"
+#import "XBCategoryKit.h"
 
 FOUNDATION_EXPORT double XBCategoryKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char XBCategoryKitVersionString[];
