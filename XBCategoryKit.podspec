@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: 分类组件，主要集合各种分类
+							TODO: 分类组件，主要集合各种分类
                        DESC
 
   s.homepage         = 'https://dev.tencent.com/u/Xinbo2016/p/XBCategoryKit/git'
@@ -29,7 +29,7 @@ TODO: 分类组件，主要集合各种分类
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'XBCategoryKit/Classes/**/*'
+  s.source_files = 'XBCategoryKit/Classes/**/*.{h,m}'
   
   # s.resource_bundles = {
   #   'FunctionModule' => ['XBCategoryKit/Assets/*.png']
