@@ -9,7 +9,6 @@
 #define XBCategoryKit_h
 
 /* --- Foundation.h" --- */
-
 #import "NSData+Encryption.h"
 #import "NSDate+Extension.h"
 #import "NSNumber+Extension.h"
@@ -20,7 +19,6 @@
 #import "NSString+Utils.h"
 
 /* --- UIKit" --- */
-
 #import "UIAlertController+Extension.h"
 #import "UIButton+Utils.h"
 #import "UIColor+Extension.h"
@@ -38,6 +36,6 @@
 
 //UIViewController
 #import "UIViewController+Extention.h"
-#import "UIViewController+Tracking.h"
+#import "UIViewController+Swizzled.h"
 
 #endif /* XBCategoryKit_h */
