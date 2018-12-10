@@ -10,6 +10,7 @@
 //#import "NSObject+Properties.h"
 
 //#import "XBTest.h"
+#import "XBCategoryKit.h"
 @implementation XBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

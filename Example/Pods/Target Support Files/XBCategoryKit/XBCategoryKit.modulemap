@@ -1,6 +1,0 @@
-framework module XBCategoryKit {
-  umbrella header "XBCategoryKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
