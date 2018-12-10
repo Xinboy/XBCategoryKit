@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XBCategoryKit'
-  s.version          = '0.2.5'
+  s.version          = '0.2.6'
   s.summary          = '分类组件'
 
 # This description is used to generate tags and improve search results.

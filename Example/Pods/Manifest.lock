@@ -1,6 +1,6 @@
 PODS:
   - Masonry (1.1.0)
-  - XBCategoryKit (0.2.5):
+  - XBCategoryKit (0.2.6):
     - Masonry
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  XBCategoryKit: 7a79ad928017ab550040118df40d9479907db960
+  XBCategoryKit: 9e91cd788872ee3e5a7136a72dd801ed686e5a4d
 
 PODFILE CHECKSUM: bce3011bc0ad9eab9587e912a4a9f46addf73852
 
