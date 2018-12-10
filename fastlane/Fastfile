@@ -19,8 +19,8 @@ platform :ios do
   desc "Fastline 自动化升级维护私有库"
   lane :update_spec do |options|
     target_version = options[:version]
-    project        = 'XBCategoryKit'
-#options[:project]
+    project        = 'XBCategoryKit'#options[:project]
+    message	   = options[:message]
     path           = "#{project}.podspec"
 
     # 1、修改spec文件（修改s.version，s.description等）
@@ -34,7 +34,7 @@ platform :ios do
 
     # 3、提交本地仓库代码至远程仓库
     git_add(path: ".")
-    git_commit(path: ".", message: "upgrade repo")
+    git_commit(path: ".", message: "upgrade repo:#{message}")
     push_to_git_remote
 
     # 4、打标签，并提交至远程
