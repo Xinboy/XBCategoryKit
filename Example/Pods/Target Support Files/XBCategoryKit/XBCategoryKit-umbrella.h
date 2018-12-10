@@ -18,14 +18,16 @@
 #import "NSString+Encryption.h"
 #import "NSString+Regex.h"
 #import "NSString+Utils.h"
-#import "UIAlertController+Extension.h"
-#import "UIButton+Utils.h"
 #import "UIColor+Extension.h"
 #import "UIDevice+Extension.h"
 #import "UIFont+Extension.h"
 #import "UIImage+Extension.h"
-#import "UILabel+Extension.h"
-#import "UIScrollView+Extention.h"
+#import "UIView+Extension.h"
+#import "UIView+Frame.h"
+#import "UIView+Init.h"
+#import "UIView+PlaceholderView.h"
+#import "UIViewController+Extention.h"
+#import "UIViewController+Swizzled.h"
 
 FOUNDATION_EXPORT double XBCategoryKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char XBCategoryKitVersionString[];
