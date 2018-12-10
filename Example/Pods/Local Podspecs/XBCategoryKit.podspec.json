@@ -1,6 +1,6 @@
 {
   "name": "XBCategoryKit",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "summary": "分类组件",
   "description": "TODO: 分类组件，主要集合各种分类",
   "homepage": "https://dev.tencent.com/u/Xinbo2016/p/XBCategoryKit/git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://git.dev.tencent.com/Xinbo2016/XBCategoryKit.git",
-    "tag": "0.2.3"
+    "tag": "0.2.4"
   },
   "platforms": {
     "ios": "8.0"

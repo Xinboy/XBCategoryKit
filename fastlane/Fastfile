@@ -19,7 +19,8 @@ platform :ios do
   desc "Fastline 自动化升级维护私有库"
   lane :update_spec do |options|
     target_version = options[:version]
-    project        = options[:project]
+    project        = 'XBCategoryKit'
+#options[:project]
     path           = "#{project}.podspec"
 
     # 1、修改spec文件（修改s.version，s.description等）
@@ -46,7 +47,7 @@ platform :ios do
     pod_lib_lint(allow_warnings: true)
     # 因为本地索引库repo的名字是基本上不会去改变的，所以这里直接写死 XBSpecs
     # podspec的名字需要由外界传入
-    pod_push(path: "#{project}.podspec", repo: "XBSpecs")
+    pod_push(path: "#{project}.podspec", repo: "XBSpecs", allow_warnings: true)
 
 
   end
