@@ -12,9 +12,9 @@
 
 
 #pragma mark - --- 数字字符串格式化 ---
-+ (NSString *)positiveFloatFormat:(NSString *)text{
++ (NSString *)positiveFloatFormat:(NSString *)text {
     
-    if(!text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    || [text floatValue] == 0){
+    if(!text || [text floatValue] == 0){
         return @"0.00";
     }else{
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -24,7 +24,7 @@
     return @"";
 }
 
-+ (NSString *)positiveIntFormat:(NSString *)text{
++ (NSString *)positiveIntFormat:(NSString *)text {
     
     if(!text || [text floatValue] == 0){
         return @"0.00";
@@ -36,6 +36,11 @@
     return @"";
 }
 
++ (NSString *)numberStringWithDouble:(double)doubleValue {
+    NSString *temp = [NSString stringWithFormat:@"%lf",doubleValue];
+    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:temp];
+    return [number stringValue];
+}
 #pragma mark - --- 清除内容 ---
 /** 清除html标签 */
 - (NSString *)stringByRemoveHTML {

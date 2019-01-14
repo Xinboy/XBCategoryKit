@@ -42,4 +42,19 @@
     NSLog(@"%@",codes);
 }
 
+- (NSString *)descriptionWithLocale:(id)locale {
+    if ([self count]) {
+        return @"";
+    }
+    NSString *willDealStr = [[self description] stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+    
+    willDealStr = [willDealStr stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\""];
+    willDealStr = [[@"\"" stringByAppendingString:willDealStr] stringByReplacingOccurrencesOfString:@"\"" withString:@"\""];
+    NSData *data = [willDealStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *str = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:NULL error:NULL];
+    
+    return str;
+}
+
 @end

@@ -12,7 +12,12 @@
 
 + (UIColor *)colorForRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 
-#pragma mark - --- 各种16进制转换颜色 ---
+
+/**
+ 修改颜色透明度
+ */
+- (UIColor *)changeAlpha:(CGFloat)alpha;
+#pragma mark - --- 各种十六进制转换颜色 ---
 /**
  十六进制整型与透明度组合转颜色
 
@@ -49,6 +54,32 @@
  */
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 
+#pragma mark - --- 根据颜色输出 ---
+
+/**
+ *
+ *  返回颜色所分别对应的R,G,B,A值
+ *
+ *  @return 包含R,G,B,A值的数组
+ */
+- (NSArray *)rgbaArray;
+
+/**
+ *
+ *  返回颜色所对应的十六进制值
+ *
+ *  @return 该颜色的十六进制
+ */
+- (NSString *)hexString;
+
+
+/**
+ *  返回颜色所对应的各个值
+ */
+- (CGFloat)red;
+- (CGFloat)blue;
+- (CGFloat)green;
+- (CGFloat)alpha;
 
 #pragma mark - --- 其他 ---
 /**

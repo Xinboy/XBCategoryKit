@@ -36,7 +36,6 @@
  @return 是否匹配*/
 - (BOOL)isPhoneNumber;
 
-
 /**
  正则匹配手机号码：11位 三大运营商
 */
@@ -67,7 +66,7 @@
 /**
  *  正则匹配IP地址有效性
  */
-- (BOOL)isIPAddress;
+- (BOOL)isIpv4Address;
 
 /**
  *  正则匹配Mac地址有效性

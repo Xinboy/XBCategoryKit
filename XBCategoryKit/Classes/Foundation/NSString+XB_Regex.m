@@ -8,38 +8,43 @@
 
 #import "NSString+XB_Regex.h"
 
+static NSString *const kValidationUserName = @"^[\u4E00-\u9FA5A-Za-z0-9]-$";
+static NSString *const kValidationPassword = @"^[a-zA-Z][a-zA-Z0-9_]{5,15}$";
+static NSString *const kValidationMainAddress = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+static NSString *const kValidationCarNumber = @"^[\u4e00-\u9fff]{1}[a-zA-Z]{1}[-][a-zA-Z_0-9]{4,5}[a-zA-Z_0-9_\u4e00-\u9fff]$";
+static NSString *const kValidationPhoneNumber = @"^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$";
+static NSString *const kValidationIDCard = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+static NSString *const kValidationIpv4Address = @"^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$";
+static NSString *const kValidationMacAddress = @"([A-Fa-f\\d]{2}:){5}[A-Fa-f\\d]{2}";
+static NSString *const kValidationUrl = @"^((http)|(https))+:[^\\s]+\\.[^\\s]*$";
+static NSString *const kValidationChinese = @"^[\u4e00-\u9fa5]+$";
+static NSString *const kValidationPostalcode = @"^[\u4e00-\u9fa5]+$";
+static NSString *const kValidationTaxNo = @"[0-9]\\d{13}([0-9]|X)$";
+
 @implementation NSString (XB_Regex)
 
 - (BOOL)isVerifyUserName {
-
-    NSString *pattern = @"^[\u4E00-\u9FA5A-Za-z0-9]-$";
-    return [self basePredicate:pattern];
+    return [self basePredicate:kValidationUserName];
 }
 
 - (BOOL)isVerifyPassword {
-    NSString *pwdRegex = @"^[a-zA-Z][a-zA-Z0-9_]{5,15}$";
-    return [self basePredicate:pwdRegex];
+    return [self basePredicate:kValidationPassword];
 }
 
 - (BOOL)isVerifyMainAddress {
-
-    NSString *mailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    return [self basePredicate:mailRegex];
+    return [self basePredicate:kValidationMainAddress];
 }
-
 
 //车牌
 - (BOOL)isCarNumber {
-    //车牌号:湘K-DE829 香港车牌号码:粤Z-J499港
-    NSString *carRegex = @"^[\u4e00-\u9fff]{1}[a-zA-Z]{1}[-][a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fff]$";
+    //车牌号:湘K-DE829 新能源车牌:浙A-F92320 香港车牌号码:粤Z-J499港
     //其中\u4e00-\u9fa5表示unicode编码中汉字已编码部分，\u9fa5-\u9fff是保留部分，将来可能会添加
-    return [self basePredicate:carRegex];
+    return [self basePredicate:kValidationCarNumber];
 }
 
 
 - (BOOL)isPhoneNumber {
-    NSString *phoneRegex = @"^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$";
-    return [self basePredicate:phoneRegex];
+    return [self basePredicate:kValidationPhoneNumber];
 }
 
 
@@ -56,12 +61,10 @@
      * 电信号段正则表达式
      */
     NSString *CT_NUM = @"^((133)|(153)|(177)|(18[0,1,9]))\\d{8}$";
-    NSPredicate *pred1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM_NUM];
-    BOOL isMatch1 = [pred1 evaluateWithObject:self];
-    NSPredicate *pred2 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU_NUM];
-    BOOL isMatch2 = [pred2 evaluateWithObject:self];
-    NSPredicate *pred3 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT_NUM];
-    BOOL isMatch3 = [pred3 evaluateWithObject:self];
+    
+    BOOL isMatch1 = [self basePredicate:CM_NUM];
+    BOOL isMatch2 = [self basePredicate:CU_NUM];
+    BOOL isMatch3 = [self basePredicate:CT_NUM];
     
     if (isMatch1 || isMatch2 || isMatch3){
         return YES;
@@ -70,9 +73,7 @@
 }
 
 - (BOOL)isIDCard {
-    NSString *idRegex = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
-    return [self basePredicate:idRegex];
-    
+    return [self basePredicate:kValidationIDCard];
 }
 
 - (BOOL)isVerifyIDCard {
@@ -144,7 +145,7 @@
     }
     
     NSMutableArray *forwardDescArray = [NSMutableArray array];
-    for (int i = forwardArray.count - 1; i > -1; i--) {
+    for (NSInteger i = forwardArray.count - 1; i > -1; i--) {
         [forwardDescArray addObject:forwardArray[i]];
     }
     
@@ -190,9 +191,8 @@
     return (luhmTotal % 10 == 0) ? YES : NO;
 }
 
-- (BOOL)isIPAddress {
-    NSString *regex = [NSString stringWithFormat:@"^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$"];
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+- (BOOL)isIpv4Address {
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",kValidationIpv4Address];
     BOOL rc = [pre evaluateWithObject:self];
     
     if (rc) {
@@ -213,29 +213,24 @@
 
 
 - (BOOL)isMacAddress {
-    NSString * macAddRegex = @"([A-Fa-f\\d]{2}:){5}[A-Fa-f\\d]{2}";
-    return  [self basePredicate:macAddRegex];
+    return  [self basePredicate:kValidationMacAddress];
 }
 
+
 - (BOOL)isValidUrl {
-    NSString *regex = @"^((http)|(https))+:[^\\s]+\\.[^\\s]*$";
-    return [self basePredicate:regex];
+    return [self basePredicate:kValidationUrl];
 }
 
 - (BOOL)isValidChinese {
-    NSString *chineseRegex = @"^[\u4e00-\u9fa5]+$";
-    return [self basePredicate:chineseRegex];
+    return [self basePredicate:kValidationChinese];
 }
 
 - (BOOL)isValidPostalcode {
-    NSString *postalRegex = @"^[0-8]\\d{5}(?!\\d)$";
-    return [self basePredicate:postalRegex];
+    return [self basePredicate:kValidationPostalcode];
 }
 
-- (BOOL)isValidTaxNo
-{
-    NSString *taxNoRegex = @"[0-9]\\d{13}([0-9]|X)$";
-    return [self basePredicate:taxNoRegex];
+- (BOOL)isValidTaxNo {
+    return [self basePredicate:kValidationTaxNo];
 }
 
 - (BOOL)basePredicate:(NSString *)regex {

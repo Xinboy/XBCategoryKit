@@ -15,6 +15,7 @@
  */
 + (NSString *)stringWithFormat:(NSString *)format InDate:(NSDate *)inDate;
 - (NSString *)stringWithFormat:(NSString *)format;
+
 + (NSDate *)dateWithString:(NSString *)string format:(NSString *)format;
 
 /**

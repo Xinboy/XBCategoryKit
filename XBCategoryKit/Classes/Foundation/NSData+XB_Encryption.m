@@ -9,8 +9,7 @@
 #import "NSData+XB_Encryption.h"
 #import <CommonCrypto/CommonCryptor.h>
 @implementation NSData (XB_AES256)
-- (NSData *)aes256_encrypt:(NSString *)key  
-{
+- (NSData *)aes256_encrypt:(NSString *)key {
     char keyPtr[kCCKeySizeAES256+1];
     bzero(keyPtr, sizeof(keyPtr));
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
@@ -47,8 +46,7 @@
     return nil;
 }
 
-- (NSData *)aes256_decrypt:(NSString *)key
-{
+- (NSData *)aes256_decrypt:(NSString *)key {
     char keyPtr[kCCKeySizeAES256+1];
     bzero(keyPtr, sizeof(keyPtr));
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];

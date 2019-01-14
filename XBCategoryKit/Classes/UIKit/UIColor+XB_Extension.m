@@ -14,6 +14,10 @@
     return [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha];
 }
 
+- (UIColor *)changeAlpha:(CGFloat)alpha {
+    return [self colorWithAlphaComponent:alpha];
+}
+
 #pragma mark - --- 各种16进制转换颜色 ---
 + (UIColor *)colorWithHexInt:(int)hexNumber alpha:(CGFloat)alpha {
     if (hexNumber > 0xFFFFFF) {
@@ -59,6 +63,53 @@
     return [UIColor colorWithHexString:hexString alpha:1.0f];
 }
 
+
+
+#pragma mark - --- 根据颜色输出 ---
+- (NSArray *)rgbaArray {
+    CGFloat r = 0, g = 0, b = 0, a = 0;
+    //判断是否存在getRed:green:blue:alpha:这个方法，有就通过这个方法获取RGBA的值
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self getRed:&r green:&g blue:&b alpha:&a];
+    }
+    else {
+        //返回数组
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        r = components[0];
+        g = components[1];
+        b = components[2];
+        a = components[3];
+    }
+    return @[@(r),@(g),@(b),@(a)];
+}
+
+- (NSString *)hexString {
+    NSArray *colorArray = [self rgbaArray];
+    int r = [colorArray[0] floatValue] * 255;
+    int g = [colorArray[1] floatValue] * 255;
+    int b = [colorArray[2] floatValue] * 255;
+    NSString *red = [NSString stringWithFormat:@"%02x", r];
+    NSString *green = [NSString stringWithFormat:@"%02x", g];
+    NSString *blue = [NSString stringWithFormat:@"%02x", b];
+    return [NSString stringWithFormat:@"#%@%@%@", red, green, blue];
+}
+
+- (CGFloat)red {
+    return [[self rgbaArray][0] floatValue];
+}
+
+- (CGFloat)green {
+    return [[self rgbaArray][1] floatValue];
+}
+
+- (CGFloat)blue {
+    return [[self rgbaArray][2] floatValue];
+}
+
+- (CGFloat)alpha {
+    return [[self rgbaArray][3] floatValue];
+}
+#pragma mark - --- 其他 ---
 /** 此点区域的色值*/
 + (UIColor *)colorAtPoint:(CGPoint)point inImage:(UIImage *)image {
     

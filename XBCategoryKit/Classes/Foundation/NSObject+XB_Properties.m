@@ -57,7 +57,7 @@
     for(int i = 0; i < count; i++){
         objc_property_t property = propertys[i];
         NSString *propertyName = [[NSString alloc]initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        id propertyValue = [self valueForKey:propertyName];
+        id propertyValue = [self valueForKey:propertyName]? : @"nil";
         [propertiesValuesDict setObject:propertyValue?:[NSNull null] forKey:propertyName];
     }
     free(propertys);
@@ -81,5 +81,19 @@
 }
 
 
+- (NSString *)debugDescription {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    uint count;
+    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    for (int i = 0; i < count; i++) {
+        objc_property_t property = properties[i];
+        NSString *name = @(property_getName(property));
+        id value = [self valueForKey:name] ? : @"nil";
+        [dictionary setObject:value forKey:name];
+    }
+    free(properties);
+    return [NSString stringWithFormat:@"<%@: %p>\n%@",[self class], self, dictionary];
+}
 
 @end

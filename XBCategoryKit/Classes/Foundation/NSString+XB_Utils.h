@@ -11,11 +11,15 @@
 
 @interface NSString (XB_Utils)
 #pragma mark - --- 数字字符串格式化 ---
-//千分位+ 保留两位小数点
+
+//千分位+ 保留两位小数点：##,###.00
 + (NSString *)positiveFloatFormat:(NSString *)text;
-//千分位 整数
+
+//千分位 整数：##,###
 + (NSString *)positiveIntFormat:(NSString *)text;
 
+//数值转换成字符串，解决出现显示0.000...0001或者0.999...9999问题
++ (NSString *)numberStringWithDouble:(double)doubleValue;
 #pragma mark - --- 清除内容 ---
 - (NSString *)stringByRemoveHTML;
 

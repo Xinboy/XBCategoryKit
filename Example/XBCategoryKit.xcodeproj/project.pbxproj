@@ -22,8 +22,11 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		721CCF2F21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CCF2E21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m */; };
+		7297077721D5F49D0078518A /* NSArray+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7297077621D5F49D0078518A /* NSArray+XB_Extension.m */; };
 		72B61F8E219BEDD000EA4B8B /* XBSuperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B61F8D219BEDD000EA4B8B /* XBSuperTest.m */; };
 		72B61F91219BEE0B00EA4B8B /* XBTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B61F90219BEE0B00EA4B8B /* XBTest.m */; };
+		72D8B53121E5C17800D2757F /* UITextView+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D8B53021E5C17800D2757F /* UITextView+XB_Extension.m */; };
 		72E6167F21BE14FD00A18FF2 /* UIView+XB_PlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6167221BE14FD00A18FF2 /* UIView+XB_PlaceholderView.m */; };
 		72E6168021BE14FD00A18FF2 /* UIView+XB_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6167321BE14FD00A18FF2 /* UIView+XB_Frame.m */; };
 		72E6168121BE14FD00A18FF2 /* UIView+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6167421BE14FD00A18FF2 /* UIView+XB_Extension.m */; };
@@ -86,10 +89,16 @@
 		6B1044018B2C35BB690B227D /* Pods-XBCategoryKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBCategoryKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XBCategoryKit_Tests/Pods-XBCategoryKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		700B23BB5009AC39AF6DDE1F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		721CCF2D21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XB_Extension.h"; sourceTree = "<group>"; };
+		721CCF2E21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XB_Extension.m"; sourceTree = "<group>"; };
+		7297077521D5F49D0078518A /* NSArray+XB_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+XB_Extension.h"; sourceTree = "<group>"; };
+		7297077621D5F49D0078518A /* NSArray+XB_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XB_Extension.m"; sourceTree = "<group>"; };
 		72B61F8C219BEDD000EA4B8B /* XBSuperTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBSuperTest.h; sourceTree = "<group>"; };
 		72B61F8D219BEDD000EA4B8B /* XBSuperTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBSuperTest.m; sourceTree = "<group>"; };
 		72B61F8F219BEE0B00EA4B8B /* XBTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBTest.h; sourceTree = "<group>"; };
 		72B61F90219BEE0B00EA4B8B /* XBTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBTest.m; sourceTree = "<group>"; };
+		72D8B52F21E5C17800D2757F /* UITextView+XB_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+XB_Extension.h"; sourceTree = "<group>"; };
+		72D8B53021E5C17800D2757F /* UITextView+XB_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+XB_Extension.m"; sourceTree = "<group>"; };
 		72E6165A21BE115B00A18FF2 /* XBCategoryKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XBCategoryKit.h; path = ../../XBCategoryKit/Classes/XBCategoryKit.h; sourceTree = "<group>"; };
 		72E6167221BE14FD00A18FF2 /* UIView+XB_PlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XB_PlaceholderView.m"; sourceTree = "<group>"; };
 		72E6167321BE14FD00A18FF2 /* UIView+XB_Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XB_Frame.m"; sourceTree = "<group>"; };
@@ -280,6 +289,8 @@
 				72E616A621BE3BA700A18FF2 /* NSDate+XB_Extension.m */,
 				72E616AA21BE3BA700A18FF2 /* NSDictionary+XB_Extension.h */,
 				72E616A321BE3BA600A18FF2 /* NSDictionary+XB_Extension.m */,
+				7297077521D5F49D0078518A /* NSArray+XB_Extension.h */,
+				7297077621D5F49D0078518A /* NSArray+XB_Extension.m */,
 				72E616AE21BE3BA900A18FF2 /* NSNumber+XB_Extension.h */,
 				72E616A421BE3BA600A18FF2 /* NSNumber+XB_Extension.m */,
 				72E616A721BE3BA700A18FF2 /* NSObject+XB_Invocation.h */,
@@ -318,6 +329,10 @@
 				72E6169321BE153200A18FF2 /* UIScrollView+XB_Extention.m */,
 				72E616BB21BE3ED400A18FF2 /* UITextField+XB_Extension.h */,
 				72E616BC21BE3ED400A18FF2 /* UITextField+XB_Extension.m */,
+				721CCF2D21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.h */,
+				721CCF2E21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m */,
+				72D8B52F21E5C17800D2757F /* UITextView+XB_Extension.h */,
+				72D8B53021E5C17800D2757F /* UITextView+XB_Extension.m */,
 				72E6167121BE14FD00A18FF2 /* UIView */,
 				72E6167A21BE14FD00A18FF2 /* UIViewController */,
 			);
@@ -543,6 +558,7 @@
 				72E616B621BE3BAA00A18FF2 /* NSData+XB_Encryption.m in Sources */,
 				6003F59E195388D20070C39A /* XBAppDelegate.m in Sources */,
 				72E616B321BE3BAA00A18FF2 /* NSDictionary+XB_Extension.m in Sources */,
+				721CCF2F21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m in Sources */,
 				72E616B921BE3BAA00A18FF2 /* NSObject+XB_Properties.m in Sources */,
 				6003F5A7195388D20070C39A /* XBViewController.m in Sources */,
 				72E6169A21BE153200A18FF2 /* UIColor+XB_Extension.m in Sources */,
@@ -554,10 +570,12 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				72E616B421BE3BAA00A18FF2 /* NSNumber+XB_Extension.m in Sources */,
 				72E6168421BE14FD00A18FF2 /* UIViewController+XB_Swizzled.m in Sources */,
+				72D8B53121E5C17800D2757F /* UITextView+XB_Extension.m in Sources */,
 				72E6169821BE153200A18FF2 /* UIFont+XB_Extension.m in Sources */,
 				72E616B721BE3BAA00A18FF2 /* NSString+XB_Regex.m in Sources */,
 				72E6169721BE153200A18FF2 /* UIDevice+XB_Extension.m in Sources */,
 				72E6167F21BE14FD00A18FF2 /* UIView+XB_PlaceholderView.m in Sources */,
+				7297077721D5F49D0078518A /* NSArray+XB_Extension.m in Sources */,
 				72E616B521BE3BAA00A18FF2 /* NSDate+XB_Extension.m in Sources */,
 				72E6169921BE153200A18FF2 /* UILabel+XB_Extension.m in Sources */,
 				72E616B221BE3BAA00A18FF2 /* NSString+XB_Utils.m in Sources */,
