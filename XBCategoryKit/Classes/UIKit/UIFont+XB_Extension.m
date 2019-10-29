@@ -21,14 +21,14 @@
 }
 
 + (CGFloat)fontSizeWithSize:(CGFloat)fontSize {
+    // iPhone
+    if ([UIDevice isPlusSizedPhone]) return fontSize + 2;
+    if ([UIDevice isSmallSizedPhone]) return fontSize - 2;
     
-    if ([UIDevice isPlusSizedDevice] || [UIDevice isXSeriesSizedDevice]) {
-        return fontSize + 2;
-    } else if ([UIDevice isSmallSizedDevice]) {
-        return fontSize - 2;
-    } else {
-        return fontSize;
-    }
+    // iPad
+    
+    // Default
+    return fontSize;
 }
 
 
