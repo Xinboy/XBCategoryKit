@@ -7,7 +7,7 @@
 //
 
 #import "NSString+XB_Utils.h"
-
+#include <unicode/utf8.h>
 @implementation NSString (XB_Utils)
 
 
@@ -68,6 +68,32 @@
 /** 清除空格和换行 */
 - (NSString *)stringByRemoveEnterAndSpace {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSString *)stringByRemoveEmoji {
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+    if (!data) {
+        return nil;
+    }
+    const char *buff = (char *)data.bytes;
+    NSUInteger len = [data length];
+    char *str = (char *)malloc(len);
+    unsigned int inputIndex = 0, outputIndex = 0;
+    int uc;
+    while (inputIndex < len) {
+        //一个一个字符遍历
+        U8_NEXT_UNSAFE(buff, inputIndex, uc);
+        //是emoji就放弃本轮循环
+        if (0x2100 <= uc && uc <= 0x26ff) {
+            continue;
+        }
+        if(0x1d000 <= uc && uc <= 0x1f77f) {
+            continue;
+        }
+        //不是emoji表情，添加到str中
+        U8_APPEND_UNSAFE(str, outputIndex, uc);
+    }
+    return [[NSString alloc] initWithBytesNoCopy:str length:outputIndex encoding:NSUTF8StringEncoding freeWhenDone:YES];
 }
 
 #pragma mark - --- String与Data转换 ---

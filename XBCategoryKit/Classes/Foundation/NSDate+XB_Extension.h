@@ -4,7 +4,7 @@
 //
 //  Created by Xinbo Hong on 2018/4/28.
 //  Copyright © 2018年 Xinbo Hong. All rights reserved.
-//
+//  日期相关
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -16,7 +16,7 @@
 + (NSString *)stringWithFormat:(NSString *)format InDate:(NSDate *)inDate;
 - (NSString *)stringWithFormat:(NSString *)format;
 
-+ (NSDate *)dateWithString:(NSString *)string format:(NSString *)format;
++ (NSDate *)dateWithString:(NSString *)string Format:(NSString *)format;
 
 /**
  获取阴历
@@ -37,6 +37,11 @@
  * 时间戳：根据传入时间戳字符串转换为时间字符串（格式：yyyy-MM-dd HH:mm:ss）
  */
 + (NSString *)timeStringWithTimeStmap:(NSString *)timeStamp;
+
+/**
+ * 时间戳：根据时间戳获取时间
+ */
+- (NSDate *)dateFromUnixTimestamp:(NSTimeInterval)timestamp;
 
 #pragma mark - --- 给定日期/当前日期的X（年/月/日/时/分/秒）前后日期 ---
 

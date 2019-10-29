@@ -161,11 +161,15 @@ static NSString *const kValidationTaxNo = @"[0-9]\\d{13}([0-9]|X)$";
             [evenNumberArray addObject:[NSNumber numberWithInteger:num]];
         } else {
             //奇数
-            NSInteger decadeNumber = (num * 2) / 10;
-            NSInteger unitNumber = (num * 2) % 10;
-            
-            [oddNumberArray2 addObject:[NSNumber numberWithInteger:unitNumber]];
-            [oddNumberArray2 addObject:[NSNumber numberWithInteger:decadeNumber]];
+            if (num * 2 < 9) {
+                [oddNumberArray addObject:[NSNumber numberWithInteger:num * 2]];
+            } else {
+                NSInteger decadeNumber = (num * 2) / 10;
+                NSInteger unitNumber = (num * 2) % 10;
+                
+                [oddNumberArray2 addObject:[NSNumber numberWithInteger:unitNumber]];
+                [oddNumberArray2 addObject:[NSNumber numberWithInteger:decadeNumber]];
+            }
         }
     }
     
@@ -175,12 +179,12 @@ static NSString *const kValidationTaxNo = @"[0-9]\\d{13}([0-9]|X)$";
     }];
     
     __block NSInteger sumOddNumberTotal1 = 0;
-    [oddNumberArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [oddNumberArray2 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         sumOddNumberTotal1 += [obj intValue];
     }];
     
     __block NSInteger sumEvenNumberTotal = 0;
-    [oddNumberArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [evenNumberArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         sumEvenNumberTotal += [obj intValue];
     }];
     

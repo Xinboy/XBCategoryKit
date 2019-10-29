@@ -7,10 +7,10 @@
 //
 
 #import "NSObject+XB_Invocation.h"
-
+#import <objc/runtime.h>
 @implementation NSObject (Invocation)
 
-- (id)performSelector:(SEL)selector withParameters:(NSArray *)parameters {
+- (id)performSelector:(SEL)selector Parameters:(NSArray *)parameters {
     //方法签名
     NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:selector];
     
@@ -45,4 +45,23 @@
     return returnValue;
 }
 
+
++ (void)swizzlingMethodReplaceSelector:(SEL)oriSel swizz:(SEL)swizzSel {
+    Class class = [self class];
+    
+    [NSObject swizzlingMethodReplaceClass:class Selector:oriSel SwizzledSelector:swizzSel];
+}
+
++ (void)swizzlingMethodReplaceClass:(Class)clazz Selector:(SEL)ori swizz:(SEL)swizz {
+    Method originalMethod = class_getInstanceMethod(clazz, ori);
+    Method swizzledMethod = class_getInstanceMethod(clazz, swizz);
+    
+    BOOL success = class_addMethod(clazz, ori, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    if (success) {
+        class_replaceMethod(clazz, swizz, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    } else {
+        //说明方法列表中存在 swizzMethod 方法
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
 @end

@@ -4,7 +4,7 @@
 //
 //  Created by 张心朝 on 16/6/28.
 //  Copyright © 2016年 张心朝. All rights reserved.
-//
+//  数据加密
 
 #import <Foundation/Foundation.h>
 @class NSString;

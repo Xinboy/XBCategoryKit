@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, AdjustingCalendar) {
     return string;
 }
 
-+ (NSDate *)dateWithString:(NSString *)string format:(NSString *)format {
++ (NSDate *)dateWithString:(NSString *)string Format:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
     
@@ -100,6 +100,9 @@ typedef NS_ENUM(NSInteger, AdjustingCalendar) {
     }
 }
 
+- (NSDate *)dateFromUnixTimestamp:(NSTimeInterval)timestamp {
+    return[NSDate dateWithTimeIntervalSince1970:timestamp];
+}
 
 #pragma mark - --- 给定日期/当前日期的X（年/月/日/时/分/秒）前后日期 ---
 + (NSDate *)dateWithTomorrow {
@@ -320,7 +323,7 @@ typedef NS_ENUM(NSInteger, AdjustingCalendar) {
 
 - (BOOL)isNextMonth {
     NSDate *nextMonth = [NSDate dateByAddingTime:1 FromDate:[NSDate date] AdjustingType:AdjustingCalendarMonth];
-    return [self isSameYearAsDate:nextMonth];
+    return [self isSameMonthAsDate:nextMonth];
 }
 
 - (BOOL)isLastMonth {
@@ -347,7 +350,7 @@ typedef NS_ENUM(NSInteger, AdjustingCalendar) {
 
 - (BOOL)isLastYear {
     NSDate *lastYear = [NSDate dateBySubtractingTime:1 FromDate:[NSDate date] AdjustingType:AdjustingCalendarYear];
-    return [self isSameMonthAsDate:lastYear];
+    return [self isSameYearAsDate:lastYear];
 }
 
 

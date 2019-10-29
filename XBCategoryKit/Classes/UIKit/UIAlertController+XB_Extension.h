@@ -16,12 +16,12 @@ UIKIT_EXTERN NSString *const kAlertControllerAttributedTitle;
 @interface UIAlertController (XB_Extension)
 
 /**
- 设置 Message 的对齐方式
+ 设置 Message 的文字对齐方式
  */
 - (void)setAlertControllerMessageAlignment:(UIAlertController *)alert textAligment:(NSTextAlignment)alignment;
 
 /**
- 设置 Title 的对齐方式
+ 设置 Title 的文字对齐方式
  */
 - (void)setAlertControllerTitleAlignment:(UIAlertController *)alert textAligment:(NSTextAlignment)alignment;
 

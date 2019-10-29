@@ -39,4 +39,14 @@
  */
 + (CGFloat)fontSizeWithSize:(CGFloat)fontSize;
 
+
+
+
+/*
+ 方法函数: controlInLightViewController:
+ 方法名称: 控制灯
+ 方法Tag: 1001 开灯, 1002 关灯, 1003 降低亮度, 1004 增加亮度
+ */
++ (__kindof UIFont *)fontWithName:(NSString *)fontName autoSize:(CGFloat)size;
+
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (XB_Invocation)
@@ -19,7 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
  @param parameters 参数
  @return 返回值
  */
-- (id)performSelector:(SEL)selector withParameters:(NSArray *)parameters;
+- (id)performSelector:(SEL)selector Parameters:(NSArray *)parameters;
+
++ (void)swizzlingMethodReplaceSelector:(SEL)ori SwizzledSelector:(SEL)swizz;
+
++ (void)swizzlingMethodReplaceClass:(Class)clazz Selector:(SEL)ori SwizzledSelector:(SEL)swizz;
+
+
 
 @end
 

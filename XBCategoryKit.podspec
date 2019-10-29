@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 							TODO: 分类组件，主要集合各种分类
                        DESC
 
-  s.homepage         = 'https://dev.tencent.com/u/Xinbo2016/p/XBCategoryKit/git'
+  s.homepage         = 'https://github.com/Xinboy/XBCategoryKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '洪新博' => 'xinbo.hong@hotmail.com' }
-  s.source           = { :git => 'https://git.dev.tencent.com/Xinbo2016/XBCategoryKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:Xinboy/XBCategoryKit.git', :tag => s.version.to_s }
 
 
   s.platform    = :ios, "8.0"
