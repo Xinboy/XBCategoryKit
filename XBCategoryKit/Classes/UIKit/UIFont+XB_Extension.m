@@ -5,6 +5,7 @@
 
 #import "UIDevice+XB_Extension.h"
 
+
 @implementation UIFont (XB_Extension)
 
 + (UIFont *)boldFontOfAutoSize:(CGFloat)fontSize {

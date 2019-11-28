@@ -38,7 +38,7 @@
     return image;
 }
 
-+ (UIImage *)imageWithCornerRadiusSize:(CGSize)size BackgroundColor:(UIColor *)color {
++ (UIImage *)imageWithCornerRadiusSize:(CGSize)size Color:(UIColor *)color {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     view.backgroundColor = color;
     
@@ -112,6 +112,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
 #pragma mark - --- 图片处理 ---
 /**
  图片模糊效果
