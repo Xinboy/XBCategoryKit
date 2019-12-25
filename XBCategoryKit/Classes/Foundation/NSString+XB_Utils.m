@@ -41,6 +41,21 @@
     NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:temp];
     return [number stringValue];
 }
+
+/// 隐藏电话号码中间4位数字
+/// @param phoneNumber 手机字符串
++ (NSString *)phoneNumberFormat:(NSString *)phoneNumber {
+    
+}
+
+/// 隐藏银行卡号中间8位数字
+/// @param cardNumber 手机字符串
++ (NSString *)cardNumberFormat:(NSString *)cardNumber;
+
+
+/// 手机号格式化, 默认: 138 0013 8000
+/// @param phoneNumber 手机字符串
++ (NSString *)stringMobileFormat:(NSString *)phoneNumber;
 #pragma mark - --- 清除内容 ---
 /** 清除html标签 */
 - (NSString *)stringByRemoveHTML {

@@ -23,8 +23,10 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7218BDCC2233598000153732 /* NSObject+XBPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7218BDCB2233598000153732 /* NSObject+XBPrivate.m */; };
+		7219DC3323B20E16001349DB /* CALayer+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7219DC3223B20E16001349DB /* CALayer+XB_Extension.m */; };
 		721CCF2F21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CCF2E21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m */; };
 		725173ED2332189900333908 /* UIView+XB_UIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 725173EC2332189900333908 /* UIView+XB_UIKitMainThreadGuard.m */; };
+		7268DB9823900C3400804DC8 /* NSURL+XB_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268DB9723900C3400804DC8 /* NSURL+XB_Extension.m */; };
 		728DD00D232F3141008A2C17 /* UIViewController+XB_Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 728DD00C232F3141008A2C17 /* UIViewController+XB_Hook.m */; };
 		728DD010232F5EA8008A2C17 /* XBAnalyseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 728DD00F232F5EA8008A2C17 /* XBAnalyseDataHelper.m */; };
 		728DD012232F5F2C008A2C17 /* analyse.json in Resources */ = {isa = PBXBuildFile; fileRef = 728DD011232F5F2C008A2C17 /* analyse.json */; };
@@ -102,10 +104,14 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7218BDCA2233598000153732 /* NSObject+XBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+XBPrivate.h"; sourceTree = "<group>"; };
 		7218BDCB2233598000153732 /* NSObject+XBPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XBPrivate.m"; sourceTree = "<group>"; };
+		7219DC3123B20E16001349DB /* CALayer+XB_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+XB_Extension.h"; sourceTree = "<group>"; };
+		7219DC3223B20E16001349DB /* CALayer+XB_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XB_Extension.m"; sourceTree = "<group>"; };
 		721CCF2D21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XB_Extension.h"; sourceTree = "<group>"; };
 		721CCF2E21D32C3900ADD2E6 /* UITableViewCell+XB_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XB_Extension.m"; sourceTree = "<group>"; };
 		725173EB2332189900333908 /* UIView+XB_UIKitMainThreadGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XB_UIKitMainThreadGuard.h"; sourceTree = "<group>"; };
 		725173EC2332189900333908 /* UIView+XB_UIKitMainThreadGuard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XB_UIKitMainThreadGuard.m"; sourceTree = "<group>"; };
+		7268DB9623900C3400804DC8 /* NSURL+XB_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+XB_Extension.h"; sourceTree = "<group>"; };
+		7268DB9723900C3400804DC8 /* NSURL+XB_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+XB_Extension.m"; sourceTree = "<group>"; };
 		728DD00B232F3141008A2C17 /* UIViewController+XB_Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XB_Hook.h"; sourceTree = "<group>"; };
 		728DD00C232F3141008A2C17 /* UIViewController+XB_Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XB_Hook.m"; sourceTree = "<group>"; };
 		728DD00E232F5EA8008A2C17 /* XBAnalyseDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAnalyseDataHelper.h; sourceTree = "<group>"; };
@@ -373,6 +379,8 @@
 				72CB588C2323A4A200876981 /* NSTimer+XB_Extension.m */,
 				72BD0BA82366B50F00BAD6FB /* NSTimer+XB_WeakTimer.h */,
 				72BD0BA92366B50F00BAD6FB /* NSTimer+XB_WeakTimer.m */,
+				7268DB9623900C3400804DC8 /* NSURL+XB_Extension.h */,
+				7268DB9723900C3400804DC8 /* NSURL+XB_Extension.m */,
 			);
 			name = Foundation;
 			path = ../../XBCategoryKit/Classes/Foundation;
@@ -405,6 +413,8 @@
 				72D8B53021E5C17800D2757F /* UITextView+XB_Extension.m */,
 				72E6167121BE14FD00A18FF2 /* UIView */,
 				72E6167A21BE14FD00A18FF2 /* UIViewController */,
+				7219DC3123B20E16001349DB /* CALayer+XB_Extension.h */,
+				7219DC3223B20E16001349DB /* CALayer+XB_Extension.m */,
 			);
 			name = UIKit;
 			path = ../../XBCategoryKit/Classes/UIKit;
@@ -644,6 +654,7 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				72E616B421BE3BAA00A18FF2 /* NSNumber+XB_Extension.m in Sources */,
 				72E6168421BE14FD00A18FF2 /* UIViewController+XB_Swizzled.m in Sources */,
+				7219DC3323B20E16001349DB /* CALayer+XB_Extension.m in Sources */,
 				72D8B53121E5C17800D2757F /* UITextView+XB_Extension.m in Sources */,
 				728DD010232F5EA8008A2C17 /* XBAnalyseDataHelper.m in Sources */,
 				72E6169821BE153200A18FF2 /* UIFont+XB_Extension.m in Sources */,
@@ -653,6 +664,7 @@
 				7297077721D5F49D0078518A /* NSArray+XB_Extension.m in Sources */,
 				72E616B521BE3BAA00A18FF2 /* NSDate+XB_Extension.m in Sources */,
 				72E39BC82334A236003788B3 /* UITableView+XB_Hook.m in Sources */,
+				7268DB9823900C3400804DC8 /* NSURL+XB_Extension.m in Sources */,
 				72E6169921BE153200A18FF2 /* UILabel+XB_Extension.m in Sources */,
 				72E616B221BE3BAA00A18FF2 /* NSString+XB_Utils.m in Sources */,
 				72E6168021BE14FD00A18FF2 /* UIView+XB_Frame.m in Sources */,

@@ -75,4 +75,8 @@ NS_INLINE CGFloat kScreenSideScale() {
 }
 
 
+NS_INLINE BOOL iOS10() {
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 8.0
+}
+
 #endif /* XBConstant_h */

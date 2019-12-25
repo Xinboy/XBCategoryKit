@@ -12,14 +12,35 @@
 @interface NSString (XB_Utils)
 #pragma mark - --- 数字字符串格式化 ---
 
-//千分位+ 保留两位小数点：##,###.00
+
+/// 数值转换成字符串，解决出现显示0.000...0001或者0.999...9999问题
+/// @param doubleValue 数值
++ (NSString *)numberStringWithDouble:(double)doubleValue;
+
+/// 千分位+ 保留两位小数点：##,###.00
+/// @param text 整数字符串
 + (NSString *)positiveFloatFormat:(NSString *)text;
 
-//千分位 整数：##,###
+
+/// 千分位 整数：##,###
+/// @param text 整数字符串
 + (NSString *)positiveIntFormat:(NSString *)text;
 
-//数值转换成字符串，解决出现显示0.000...0001或者0.999...9999问题
-+ (NSString *)numberStringWithDouble:(double)doubleValue;
+
+
+/// 隐藏电话号码中间4位数字
+/// @param phoneNumber 手机字符串
++ (NSString *)phoneNumberFormat:(NSString *)phoneNumber;
+
+/// 隐藏银行卡号中间8位数字
+/// @param cardNumber 手机字符串
++ (NSString *)cardNumberFormat:(NSString *)cardNumber;
+
+
+/// 手机号格式化, 默认: 138 0013 8000
+/// @param phoneNumber 手机字符串
++ (NSString *)stringMobileFormat:(NSString *)phoneNumber;
+
 #pragma mark - --- 清除内容 ---
 - (NSString *)stringByRemoveHTML;
 

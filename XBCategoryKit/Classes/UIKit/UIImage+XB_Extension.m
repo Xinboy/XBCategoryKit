@@ -113,6 +113,73 @@
     return image;
 }
 
+
++ (UIImage *)takeScreenshot {
+    CGSize imageSize = CGSizeZero;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    
+    // 获取屏幕方向
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        imageSize = screenSize;
+    } else {
+        imageSize = CGSizeMake(screenSize.height, screenSize.width);
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(imageSize, false, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    if (context) {
+        for (UIWindow *window in [UIApplication sharedApplication].windows) {
+            CGContextSaveGState(context);
+            CGContextTranslateCTM(context, window.center.x, window.center.y);
+            CGContextConcatCTM(context, window.transform);
+            CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y);
+            
+            switch (orientation) {
+                case UIInterfaceOrientationLandscapeLeft:
+                    CGContextRotateCTM(context, M_PI_4);
+                    CGContextTranslateCTM(context, 0, -imageSize.width);
+                    break;
+                case UIInterfaceOrientationLandscapeRight:
+                    CGContextRotateCTM(context, -M_PI_2);
+                    CGContextTranslateCTM(context, -imageSize.height, 0);
+                    break;
+                case UIInterfaceOrientationPortraitUpsideDown:
+                    CGContextRotateCTM(context, M_PI);
+                    CGContextTranslateCTM(context, -imageSize.width, -imageSize.height);
+                    break;
+                default:
+                    break;
+            }
+            
+            if ([window respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+                [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:YES];
+            } else {
+                [window.layer renderInContext:context];
+            }
+            
+            CGContextRestoreGState(context);
+        }
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
++ (UIImage *)screenshot {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, [UIScreen mainScreen].scale);
+    
+    [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 #pragma mark - --- 图片处理 ---
 /**
  图片模糊效果

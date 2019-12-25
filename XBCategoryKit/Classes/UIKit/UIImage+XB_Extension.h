@@ -21,7 +21,6 @@ typedef NS_ENUM(NSInteger, CircleHeading) {
 + (instancetype)snapshotCurrentScreen;
 
 #pragma mark - --- 获取图片 ---
-
 /// 根据颜色生成纯色图片
 /// @param color 颜色
 + (UIImage *)imageWithColor:(UIColor *)color;
@@ -54,6 +53,11 @@ typedef NS_ENUM(NSInteger, CircleHeading) {
 
 
 - (void)configureAsset:(PHAsset *)asset doAction:(void(^)(NSString *url))actionBlock;
+
+///
++ (UIImage *)takeScreenshot;
+
++ (UIImage *)screenshot;
 #pragma mark - --- 图片处理 ---
 
 /// 图片模糊效果：默认透明度为0.1，半径3，饱和因子为1
