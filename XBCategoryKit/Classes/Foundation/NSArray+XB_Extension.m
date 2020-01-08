@@ -24,15 +24,25 @@
     if ([self count]) {
         return @"";
     }
-    NSString *willDealStr = [[self description] stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+//    NSString *willDealStr = [[self description] stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+//
+//    willDealStr = [willDealStr stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\""];
+//    willDealStr = [[@"\"" stringByAppendingString:willDealStr] stringByReplacingOccurrencesOfString:@"\"" withString:@"\""];
+//    NSData *data = [willDealStr dataUsingEncoding:NSUTF8StringEncoding];
+//
+//    NSString *str = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:NULL error:NULL];
+//
+//    return str;
     
-    willDealStr = [willDealStr stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\""];
-    willDealStr = [[@"\"" stringByAppendingString:willDealStr] stringByReplacingOccurrencesOfString:@"\"" withString:@"\""];
-    NSData *data = [willDealStr dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSString *str = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:NULL error:NULL];
-    
-    return str;
+    NSMutableString *desc = [NSMutableString stringWithString:@"(\n"];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,BOOL *stop) {
+        [desc appendFormat:@"\t%@,\n", obj];
+    }];
+
+    [desc appendString:@")"];
+
+    return desc;
+
 }
 
 

@@ -45,17 +45,31 @@
 /// 隐藏电话号码中间4位数字
 /// @param phoneNumber 手机字符串
 + (NSString *)phoneNumberFormat:(NSString *)phoneNumber {
+    return [phoneNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d{3})(\\d{4})"
+                                                  withString:@"$1 **** $3"
+                                                     options:NSRegularExpressionSearch
+                                                       range:NSMakeRange(0, [phoneNumber length])];
     
 }
 
 /// 隐藏银行卡号中间8位数字
 /// @param cardNumber 手机字符串
-+ (NSString *)cardNumberFormat:(NSString *)cardNumber;
++ (NSString *)cardNumberFormat:(NSString *)cardNumber {
+    return [cardNumber stringByReplacingCharactersInRange:NSMakeRange(5, 8) withString:@"********"];;
+}
 
 
 /// 手机号格式化, 默认: 138 0013 8000
 /// @param phoneNumber 手机字符串
-+ (NSString *)stringMobileFormat:(NSString *)phoneNumber;
++ (NSString *)stringMobileFormat:(NSString *)phoneNumber {
+
+    
+    return [phoneNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d{3})(\\d{4})"
+                                                  withString:@"$1 $2 $3"
+                                                     options:NSRegularExpressionSearch
+                                                       range:NSMakeRange(0, [phoneNumber length])];
+}
+
 #pragma mark - --- 清除内容 ---
 /** 清除html标签 */
 - (NSString *)stringByRemoveHTML {

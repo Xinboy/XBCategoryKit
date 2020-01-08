@@ -61,23 +61,54 @@ typedef NS_ENUM(NSInteger, AdjustingCalendar) {
     
 }
 
+static NSDateFormatter *dateFormatter = nil;
++ (NSDateFormatter *)cacheDateFormatter {
+    
+    NSString *formatterString = @"yyyy-MM-dd HH:mm:ss";
+
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
+        // 7.0 以后 NSDateFormatter 是线程安全的
+        if (!dateFormatter) {
+            dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setLocale:[NSLocale currentLocale]];
+            [dateFormatter setDateFormat:formatterString];
+        }
+
+        return dateFormatter;
+    } else {
+        NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
+        NSDateFormatter *formatter = [threadDictionary objectForKey:@"cachedDateFormatter"];
+        if (!formatter) {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setLocale:[NSLocale currentLocale]];
+            [formatter setDateFormat:formatterString];
+            [threadDictionary setObject:formatter forKey:@"cachedDateFormatter"];
+
+        }
+        return formatter;
+    }
+    
+    
+}
+
 #pragma mark - --- 时间戳 ---
-/**
- * 时间戳：将当前时间转换为时间戳
- */
+
+/// 时间戳：将当前时间转换为时间戳
 + (NSString *)stringWithNowTimeStamp {
     NSDate *date = [NSDate date];
     return [NSString stringWithFormat:@"%ld",(NSInteger)[date timeIntervalSince1970]];
 }
 
-/**
- * 时间戳：根据传入时间字符串转换为时间戳
- */
-+ (NSString *)timeStampWithTimeString:(NSString *)timeString {
+/// 时间戳：根据传入时间字符串转换为时间戳（格式：yyyy-MM-dd HH:mm:ss）
++ (NSString *)timeStampWithTimeString:(NSString *)timeString formatter:(NSString *)formatterString {
+    
     if (timeString.length > 0) {
+        if (formatterString == nil || [formatterString isEqualToString:@""]) {
+            formatterString = @"yyyy-MM-dd HH:mm:ss";
+        }
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         [formatter setTimeZone:[NSTimeZone defaultTimeZone]];
-        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [formatter setDateFormat:formatterString];
         NSDate *versionData = [formatter dateFromString:timeString];
         return [NSString stringWithFormat:@"%ld",(NSInteger)[versionData timeIntervalSince1970]];
     } else {
@@ -88,11 +119,15 @@ typedef NS_ENUM(NSInteger, AdjustingCalendar) {
 /**
  * 时间戳：根据传入时间戳字符串转换为时间字符串（格式：yyyy-MM-dd HH:mm:ss）
  */
-+ (NSString *)timeStringWithTimeStmap:(NSString *)timeStamp {
++ (NSString *)timeStringWithTimeStmap:(NSString *)timeStamp formatter:(NSString *)formatterString {
+    
     if (timeStamp.length > 0) {
+        if (formatterString == nil || [formatterString isEqualToString:@""]) {
+            formatterString = @"yyyy-MM-dd HH:mm:ss";
+        }
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         [formatter setTimeZone:[NSTimeZone defaultTimeZone]];
-        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [formatter setDateFormat:formatterString];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp.integerValue];
         return [formatter stringFromDate:date];
     } else {

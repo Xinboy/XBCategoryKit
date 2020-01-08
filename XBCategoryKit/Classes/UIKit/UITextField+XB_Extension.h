@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextField (XB_Extension)
 
-@property (nonatomic, strong) UIColor *placeholderColor;
+- (void)setPlaceholderColor:(UIColor *)placeholderColor;
 
 @end
 

@@ -10,7 +10,6 @@
 
 @implementation UITextField (XB_Extension)
 
-static NSString *const kPlaceholderColorKey = @"placeholderLabel.textColor";
 
 - (void)setPlaceholderColor:(UIColor *)placeholderColor {
     /* 这3行代码的作用
@@ -26,11 +25,8 @@ static NSString *const kPlaceholderColorKey = @"placeholderLabel.textColor";
         
     }
     
-    [self setValue:placeholderColor forKey:kPlaceholderColorKey];
-}
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: placeholderColor}];
 
-- (UIColor *)placeholderColor {
-    return [self valueForKeyPath:kPlaceholderColorKey];
 }
 
 

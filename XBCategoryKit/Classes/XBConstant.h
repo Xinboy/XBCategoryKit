@@ -75,8 +75,29 @@ NS_INLINE CGFloat kScreenSideScale() {
 }
 
 
-NS_INLINE BOOL iOS10() {
+NS_INLINE BOOL iOS8() {
     return [[UIDevice currentDevice].systemVersion doubleValue] >= 8.0
 }
+
+NS_INLINE BOOL iOS9() {
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 9.0
+}
+
+NS_INLINE BOOL iOS10() {
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 10.0
+}
+
+NS_INLINE BOOL iOS11() {
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 11.0
+}
+
+NS_INLINE BOOL iOS12() {
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 12.0
+}
+
+NS_INLINE BOOL iOS13() {
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 13.0
+}
+
 
 #endif /* XBConstant_h */
