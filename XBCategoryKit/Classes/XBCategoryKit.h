@@ -39,6 +39,10 @@
 #import "UIViewController+XB_Extention.h"
 #import "UIViewController+XB_Swizzled.h"
 
+
+#define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+#define StrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Strong;
+
 #ifndef weakify
     #if DEBUG
         #if __has_feature(objc_arc)

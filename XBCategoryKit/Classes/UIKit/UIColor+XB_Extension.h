@@ -12,7 +12,6 @@
 
 + (UIColor *)colorForRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 
-
 /**
  修改颜色透明度
  */

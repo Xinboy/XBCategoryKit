@@ -10,7 +10,6 @@
 #define XBConstant_h
 
 #import "UIDevice+XB_Extension.h"
-
 /**
  格式为：yyyy/MM/dd的日期字符串
 
@@ -32,14 +31,14 @@ NS_INLINE NSUserDefaults *kUserDef() {
 
 //状态栏高度
 NS_INLINE CGFloat kStatusBarHeight() {
-    return ([UIDevice isCanFaceID] ? 44 : 20);
+    return ([UIDevice hasFaceIDInPhone] ? 44 : 20);
 }
 NS_INLINE CGFloat kNavigationBarHeight() {
     return 44;
 }
 //底部危险区域高度
 NS_INLINE CGFloat kBottomDangerArea() {
-    return ([UIDevice isCanFaceID] ? 44 : 20);
+    return ([UIDevice hasFaceIDInPhone] ? 44 : 20);
 }
 //底部菜单高度
 NS_INLINE CGFloat kTabBarHeight() {
@@ -76,27 +75,27 @@ NS_INLINE CGFloat kScreenSideScale() {
 
 
 NS_INLINE BOOL iOS8() {
-    return [[UIDevice currentDevice].systemVersion doubleValue] >= 8.0
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 8.0;
 }
 
 NS_INLINE BOOL iOS9() {
-    return [[UIDevice currentDevice].systemVersion doubleValue] >= 9.0
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 9.0;
 }
 
 NS_INLINE BOOL iOS10() {
-    return [[UIDevice currentDevice].systemVersion doubleValue] >= 10.0
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 10.0;
 }
 
 NS_INLINE BOOL iOS11() {
-    return [[UIDevice currentDevice].systemVersion doubleValue] >= 11.0
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 11.0;
 }
 
 NS_INLINE BOOL iOS12() {
-    return [[UIDevice currentDevice].systemVersion doubleValue] >= 12.0
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 12.0;
 }
 
 NS_INLINE BOOL iOS13() {
-    return [[UIDevice currentDevice].systemVersion doubleValue] >= 13.0
+    return [[UIDevice currentDevice].systemVersion doubleValue] >= 13.0;
 }
 
 

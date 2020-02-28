@@ -273,7 +273,7 @@
 }
 
 /**
- 压缩图片
+ 循环压缩图片
  */
 - (NSData *)compressWithMaxLength:(NSInteger)maxLength {
     CGFloat compress = 0.9;

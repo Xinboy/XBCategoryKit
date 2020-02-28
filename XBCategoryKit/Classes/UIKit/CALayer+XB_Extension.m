@@ -8,8 +8,6 @@
 
 #import "CALayer+XB_Extension.h"
 
-#import <AppKit/AppKit.h>
-
 
 @implementation CALayer (XB_Extension)
 

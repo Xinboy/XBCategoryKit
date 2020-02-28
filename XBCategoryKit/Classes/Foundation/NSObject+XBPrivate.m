@@ -12,6 +12,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <UserNotifications/UserNotifications.h>
 
+#import "AppDelegate.h"
+
 typedef void (^ PrivacyCancelBlock)(void);
 
 

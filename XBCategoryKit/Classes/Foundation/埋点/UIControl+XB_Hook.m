@@ -17,13 +17,6 @@
 
 + (void)load {
     
-
-//    Method controlMethod = class_getInstanceMethod([UIControl class], @selector(sendAction:to:forEvent:));
-//    
-//    class_addMethod([UIControl class], @selector(hook_sendAction:to:forEvent:), method_getImplementation(controlMethod), method_getTypeEncoding(controlMethod));
-//    method_setImplementation(controlMethod, class_getMethodImplementation([self class], @selector(hook_sendAction:to:forEvent:)));
-//    
-    
     //页面进入Hook方法
     Method fromMethod = class_getInstanceMethod([self class], @selector(sendAction:to:forEvent:));
     Method toMethod = class_getInstanceMethod([self class], @selector(hook_sendAction:to:forEvent:));
