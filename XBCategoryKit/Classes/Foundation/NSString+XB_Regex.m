@@ -72,6 +72,17 @@ static NSString *const kValidationTaxNo = @"[0-9]\\d{13}([0-9]|X)$";
     return NO;
 }
 
+
+- (BOOL)isInternationalPhoneNumber {
+    NSString *aaa = @"^\\s*\\+?\\s*(\\(\\s*\\d+\\s*\\)|\\d+)(\\s*-?\\s*(\\(\\s*\\d+\\s*\\)|\\s*\\d+\\s*))*\\s*$";
+        
+       NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", aaa];
+       if (([regextestct evaluateWithObject:self])) {
+           return YES;
+       }
+       return NO;
+}
+
 - (BOOL)isIDCard {
     return [self basePredicate:kValidationIDCard];
 }

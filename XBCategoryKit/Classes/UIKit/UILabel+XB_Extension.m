@@ -10,6 +10,13 @@
 
 @implementation UILabel (XB_Extension)
 
+- (void)addTarget:(id)target action:(SEL)action {
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    [self addGestureRecognizer:tap];
+}
+
+
 /**
  *  设置字间距
  */

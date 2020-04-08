@@ -202,7 +202,7 @@
 }
 
 - (UIImage *)imageWithCornerRadius:(CGFloat)radius {
-    CGRect rect = (CGRect){0.0f,0.0f,self.size};
+    CGRect rect = (CGRect){0.0, 0.0, self.size};
     
     UIGraphicsBeginImageContextWithOptions(self.size, NO, UIScreen.mainScreen.scale);
     CGContextAddPath(UIGraphicsGetCurrentContext(), [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);

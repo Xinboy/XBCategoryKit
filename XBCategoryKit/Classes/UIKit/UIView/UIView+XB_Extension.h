@@ -12,14 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (XB_Extension)
 
 
-/**
- 给view设置圆角
- 
- @param value 圆角大小
- @param rectCorner 圆角位置
- */
-- (void)setCornerRadius:(CGFloat)value addRectCorners:(UIRectCorner)rectCorner;
 
+/// UIView 创建圆角ImageView并插入到视图层级的底部
+/// @param radius 圆角尺寸
+/// @param borderWidth 圆角宽度
+/// @param borderColor 圆角颜色
+/// @param bgColor 底部颜色
+- (void)setViewCornerWithRoundedCorner:(CGFloat)radius
+                           borderWidth:(CGFloat)borderWidth
+                           borderColor:(UIColor *)borderColor
+                       backGroundColor:(UIColor *)bgColor;
 
 /**
  截取成图片

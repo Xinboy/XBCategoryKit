@@ -42,6 +42,11 @@
 - (BOOL)isVerifyPhoneNumber;
 
 /**
+ 正则匹配国际手机号码
+*/
+- (BOOL)isInternationalPhoneNumber;
+
+/**
  正则匹配身份证号：身份证号
  */
 - (BOOL)isIDCard;
